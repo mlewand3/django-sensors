@@ -1,12 +1,24 @@
-/* Gauges.js, a basic gauges display */
+/* Gauges.js, a basic gauges display based on google gauges */
 
-$(function(){
-  $('.gauge').each(function(){
-    min = $(this).attr('min');
-    max = $(this).attr('max');
-    range = (max - min) / 100;
-    degrees = 90;
-    needle_degrees = degrees;
-    $(this).find('#needle').get(0).css('-webkit-transform', 'rotate(' + needle_degrees + ')');
-  });
-});
+
+google.load('visualization', '1', {packages:['gauge']});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['Memory', 80],
+    ['CPU', 55],
+    ['Network', 68]
+  ]);
+
+  var options = {
+    width: 400, height: 120,
+    redFrom: 90, redTo: 100,
+    yellowFrom:75, yellowTo: 90,
+    minorTicks: 5
+  };
+
+  var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
+
