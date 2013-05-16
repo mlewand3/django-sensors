@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block includes %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gauges.css">
+{% endblock %}
+
+{% block main %}
+  {% for sensor in sensors %}
+  <div class="gauge" min="110000" max="410000">
+    {% for reading in sensor.readings %}
+      <div id="needle" value="{{ reading.value }}"></div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+{% endblock %}
