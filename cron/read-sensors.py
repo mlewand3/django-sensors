@@ -58,7 +58,7 @@ for sensor in w1_list:
         sensor_obj.save()
 
     with open(sensor + '/w1_slave') as f:
-        sensor_reading = f.readlines()
+        sensor_reading = ' '.join(f.readlines())
 
     sensor_reading = sensor_reading_regex.search(sensor_reading).group(0)
 
