@@ -19,6 +19,30 @@ def home(request):
 
 
 def ajax_gauge_update(request):
+    w1_list = glob.glob("/sys/bus/w1/devices/*")
+    w1_folder_regex = re.compile('\d+-\d+')
+    sensor_reading_regex = re.compile('[\d]+\n')
+    w1_list = filter(w1_folder_regex.search, w1_list)
+    for sensor in w1_list:
+        sensor_serial = None
+        sensor_reading = None
+
+        sensor_serial = w1_folder_regex.search(sensor).group(0)
+
+        try:
+            sensor_obj = Sensor.objects.get(serial=sensor_serial)
+        except Sensor.DoesNotExist:
+            sensor_obj = Sensor(serial=sensor_serial)
+            sensor_obj.save()
+
+        with open(sensor + '/w1_slave') as f:
+            sensor_reading = f.readlines()
+
+        sensor_reading = ' '.join(sensor_reading)
+        sensor_reading = sensor_reading_regex.search(sensor_reading).group(0)
+
+        reading = Reading(sensor=sensor_obj, value=sensor_reading)
+        reading.save()
     sensors = Sensor.objects.all()
     latest_readings = []
     json_out = ''
