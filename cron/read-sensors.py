@@ -55,9 +55,8 @@ for sensor in w1_list:
     try:
         sensor = Sensor.objects.get(serial=sensor_serial)
     except Sensor.DoesNotExist:
-        Sensor(serial=sensor_serial)
-        Sensor.save()
-        sensor = Sensor
+        sensor = Sensor(serial=sensor_serial)
+        sensor.save()
 
     with open(sensor + '/w1_slave') as f:
         sensor_reading = f.readlines()
