@@ -41,7 +41,7 @@ for sensor in w1_list:
     sensor_serial = None
     sensor_reading = None
 
-    with open(sensor + 'w1_slave') as f:
+    with open(sensor + '/w1_slave') as f:
         sensor_reading = f.readlines()
 
     sensor_serial = w1_folder_regex.search(sensor).group(0)
