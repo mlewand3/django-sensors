@@ -66,5 +66,3 @@ for sensor in w1_list:
     sensor_reading = sensor_reading_regex.search(sensor_reading).group(0)
 
     Reading(sensor=sensor_obj, value=sensor_reading)
-
-print sensors
