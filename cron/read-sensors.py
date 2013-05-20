@@ -31,7 +31,6 @@ work with other types of devices.
 w1_list = glob.glob("/sys/bus/w1/devices/*")
 w1_folder_regex = re.compile('\d+-\d+')
 
-sensors = []
 sensor_reading_regex = re.compile('\ze[\d]+\n')
 
 
@@ -47,7 +46,6 @@ sensor_reading_regex = re.compile('\ze[\d]+\n')
 w1_list = filter(w1_folder_regex.search, w1_list)
 
 for sensor in w1_list:
-    sensor = None
     sensor_serial = None
     sensor_reading = None
 
