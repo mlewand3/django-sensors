@@ -35,14 +35,14 @@ $(function(){
         //Update the dashboard's gauges
         for (var i=0;i<response.length;i++){
           gauge_data.push([
-            response[i]['name'],
+            response[i]['name'] + '',
             parseFloat(response[i]['last-reading'])
           ]);
         }
         console.log(gauge_data);
         drawChart(gauge_data, chart, options);
     }, dataType: "json"});
-  }, 500);
+  }, 3000);
 });
 
 function drawChart(data, chart, options) {

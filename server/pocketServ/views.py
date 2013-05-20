@@ -44,6 +44,7 @@ def ajax_gauge_update(request):
 
         reading = Reading(sensor=sensor_obj, value=sensor_reading)
         reading.save()
+
     sensors = Sensor.objects.all()
     latest_readings = []
     json_out = ''
