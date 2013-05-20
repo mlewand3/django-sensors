@@ -27,7 +27,7 @@ sensor_serial_regex = re.compile('\ze\/.*')
 
 
 # Sample data
-w1_list = ['foobar', '1234567890-2345678900987654321']
+#w1_list = ['foobar', '1234567890-2345678900987654321']
 # end sample data
 
 '''
