@@ -52,16 +52,16 @@ for sensor in w1_list:
     sensor_serial = w1_folder_regex.search(sensor).group(0)
 
     try:
-        sensor = Sensor.objects.get(serial=sensor_serial)
+        sensor_obj = Sensor.objects.get(serial=sensor_serial)
     except Sensor.DoesNotExist:
-        sensor = Sensor(serial=sensor_serial)
-        sensor.save()
+        sensor_obj = Sensor(serial=sensor_serial)
+        sensor_obj.save()
 
     with open(sensor + '/w1_slave') as f:
         sensor_reading = f.readlines()
 
     sensor_reading = sensor_reading_regex.search(sensor_reading).group(0)
 
-    Reading(sensor=sensor, value=sensor_reading)
+    Reading(sensor=sensor_obj, value=sensor_reading)
 
 print sensors
