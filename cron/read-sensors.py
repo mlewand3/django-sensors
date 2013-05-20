@@ -18,7 +18,7 @@ work with other types of devices.
     SETUP
 '''
 
-w1_list = glob.glob("/sys/bus/w1/devices/")
+w1_list = glob.glob("/sys/bus/w1/devices/*")
 w1_folder_regex = re.compile('\d+-\d+')
 
 
