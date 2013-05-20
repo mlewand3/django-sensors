@@ -51,6 +51,7 @@ for sensor in w1_list:
     sensor_serial = None
     sensor_reading = None
 
+    print sensor
     sensor_serial = w1_folder_regex.search(sensor).group(0)
 
     try:
