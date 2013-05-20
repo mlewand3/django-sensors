@@ -5,6 +5,9 @@ class Reading(models.Model):
     sensor = models.ForeignKey('Sensor')
     value = models.CharField(max_length=255)
 
+    class Meta:
+        get_latest_by = 'id'
+
     def __unicode__(self):
         return u' %s ' % self.sensor + u' -> %s ' % self.value
 
@@ -16,14 +19,18 @@ class Reading(models.Model):
 
 
 class Sensor(models.Model):
+    title = models.CharField(max_length=255)
     serial = models.CharField(max_length=255)
     sensor_type = models.ForeignKey('SensorType')
 
     def __unicode__(self):
-        return unicode(self.sensor_type) + ' - ' + unicode(self.serial)
+        return unicode(self.sensor_type) + ' - ' + unicode(self.title)
 
     def readings(self):
         return Reading.objects.filter(sensor=self)
+
+    def latest_reading(self):
+        return Reading.objects.filter(sensor=self).latest().value
 
     def get_fields(self):
         try:

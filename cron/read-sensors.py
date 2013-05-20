@@ -20,16 +20,18 @@ work with other types of devices.
 
 w1_list = glob.glob("/sys/bus/w1/devices/")
 w1_folder_regex = re.compile('\d+-\d+')
-w1_data = []
+
 
 
 # Sample data
-w1_list = ['foobar', '1234567890-2345678900987654321']
+#w1_list = ['foobar', '1234567890-2345678900987654321']
 # end sample data
 
 '''
     RUN
 '''
+
+print w1_list
 
 w1_list = filter(w1_folder_regex.search, w1_list)
 

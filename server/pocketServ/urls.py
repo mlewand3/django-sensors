@@ -6,6 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'pocketServ.views.home', name='home'),
+    url(r'^ajax-gauge-update$', 'pocketServ.views.ajax_gauge_update', name='ajax_gauge_update'),
     # url(r'^pocketServ/', include('pocketServ.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

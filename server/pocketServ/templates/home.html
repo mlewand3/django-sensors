@@ -8,10 +8,9 @@
 
 {% block main %}
   {% for sensor in sensors %}
-  <div class="gauge" min="110000" max="410000">
-    {% for reading in sensor.readings %}
-      <div id="needle" value="{{ reading.value }}"></div>
-    {% endfor %}
-  </div>
+    <div class="sensor" type="{{ sensor.sensor_type }}" title="{{ sensor.title }}">
+      <div class="reading" value="{{ sensor.latest_reading }}"></div>
+    </div>
   {% endfor %}
+  <div id="chart_div"></div>
 {% endblock %}
