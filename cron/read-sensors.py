@@ -5,6 +5,9 @@ import sys
 sys.path.append("../env")
 sys.path.append("../server/")
 
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pocketServ.settings")
+
 from sensors.models import *
 
 '''
