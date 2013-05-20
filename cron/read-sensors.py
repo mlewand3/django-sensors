@@ -62,6 +62,7 @@ for sensor in w1_list:
 
     print sensor_reading
     sensor_reading = ' '.join(sensor_reading)
+    print sensor_reading
     sensor_reading = sensor_reading_regex.search(sensor_reading).group(0)
 
     Reading(sensor=sensor_obj, value=sensor_reading)
