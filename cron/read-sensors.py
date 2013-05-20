@@ -2,7 +2,7 @@ import glob
 import re
 
 import sys
-sys.path.append("../env")
+sys.path.append("../env/bin/")
 sys.path.append("../server/")
 
 import os
