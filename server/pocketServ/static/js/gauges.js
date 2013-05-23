@@ -26,23 +26,23 @@ $(function(){
   };
 
   function pollServer() {
-    $.ajax({ url: "/ajax-gauge-update",
-      done: function(response){
-        pollServer();
-      },
-      success: function(response){
-        var gauge_data = [['Label', 'Value']];
-        //Update the dashboard's gauges
-        for (var i=0;i<response.length;i++){
-          gauge_data.push([
-            response[i]['name'] + '',
-            parseFloat(response[i]['last-reading'])
-          ]);
-        }
-        console.log(gauge_data);
-        drawChart(gauge_data, chart, options);
-      },
-      dataType: "json"
+    var request = $.ajax("/ajax-gauge-update");
+
+    request.always(function(){
+      pollServer();
+    });
+
+    request.success(function(response){
+      var gauge_data = [['Label', 'Value']];
+      //Update the dashboard's gauges
+      for (var i=0;i<response.length;i++){
+        gauge_data.push([
+          response[i]['name'] + '',
+          parseFloat(response[i]['last-reading'])
+        ]);
+      }
+      console.log(gauge_data);
+      drawChart(gauge_data, chart, options);
     });
   }
 
