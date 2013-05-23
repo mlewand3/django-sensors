@@ -42,7 +42,7 @@ $(function(){
         console.log(gauge_data);
         drawChart(gauge_data, chart, options);
     }, dataType: "json"});
-  }, 1200);
+  }, 800);
 });
 
 function drawChart(data, chart, options) {
