@@ -20,6 +20,7 @@ def home(request):
 
 
 def ajax_gauge_update(request):
+    '''
     w1_list = glob.glob("/sys/bus/w1/devices/*")
     w1_folder_regex = re.compile('\d+-\d+')
     sensor_reading_regex = re.compile('[\d]+\n')
@@ -44,6 +45,7 @@ def ajax_gauge_update(request):
 
         reading = Reading(sensor=sensor_obj, value=sensor_reading)
         reading.save()
+    '''
 
     sensors = Sensor.objects.all()
     latest_readings = []
