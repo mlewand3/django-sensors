@@ -27,7 +27,7 @@ $(function(){
 
   function pollServer() {
     $.ajax({ url: "/ajax-gauge-update",
-      always: function(response){
+      done: function(response){
         pollServer();
       },
       success: function(response){
