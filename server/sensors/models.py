@@ -4,6 +4,7 @@ from django.db import models
 class Reading(models.Model):
     sensor = models.ForeignKey('Sensor')
     value = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now=True, blank=True, null=True)
 
     class Meta:
         get_latest_by = 'id'
@@ -22,7 +23,6 @@ class Sensor(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     serial = models.CharField(max_length=255)
     sensor_type = models.ForeignKey('SensorType', blank=True, null=True)
-    date = models.DateTimeField(auto_now=True, blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.sensor_type) + ' - ' + unicode(self.title)
