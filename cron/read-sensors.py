@@ -3,8 +3,9 @@ import re
 import sys
 import os
 
-print os.path.join(os.path.realpath(__file__), '../server/')
-sys.path.append(os.path.join(os.path.realpath(__file__), '../server/'))
+script_dir = os.path.dirname(os.path.abspath(__file__))
+print os.path.join(script_dir, '../server/')
+sys.path.append(os.path.join(script_dir, '../server/'))
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pocketServ.settings")
 
