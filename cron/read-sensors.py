@@ -1,10 +1,11 @@
 import glob
 import re
-
 import sys
-sys.path.append("../server/")
-
 import os
+
+
+sys.path.append(os.path.join(os.path.realpath(__file__), '../server/'))
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pocketServ.settings")
 
 from sensors.models import *
