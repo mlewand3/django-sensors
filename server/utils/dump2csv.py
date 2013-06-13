@@ -17,7 +17,7 @@ def dump(qs, outfile_path):
         http://www.djangosnippets.org/snippets/790/
 
     """
-                model = qs.model
+    model = qs.model
     writer = csv.writer(open(outfile_path, 'w'))
 
     headers = []
