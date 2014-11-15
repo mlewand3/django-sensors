@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block includes %}
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/gauges.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gauges.css">
+{% endblock %}
+
+{% block main %}
+  {% for sensor in sensors %}
+    <div class="sensor" type="{{ sensor.sensor_type }}" title="{{ sensor.title }}">
+      <div class="reading" value="{{ sensor.latest_reading }}"></div>
+    </div>
+  {% endfor %}
+  <div id="chart_div"></div>
+{% endblock %}
