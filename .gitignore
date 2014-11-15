@@ -1,5 +1,27 @@
+#
+# Python files
+#
 
 env
 *.pyc
+
+#
+# Django files
+#
+
+secret.txt
 local_settings.py
+
+#
+# Database files
+#
+
+*.db
+*.sqlite
+*.sqlite3
+
+#
+# System files
+#
+
 .DS_Store
