@@ -20,7 +20,12 @@ $(function(){
   };
 
   function pollServer() {
-    var request = $.ajax("/ajax-gauge-update");
+    var request = $.ajax(
+        "/ajax-gauge-update",
+        {
+          'timeout': 5000
+        }
+    );
 
     request.always(function(){
       setTimeout(function(){
