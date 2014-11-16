@@ -52,6 +52,7 @@ So, we're not using django-cellery or anything like that here- this was designed
 
     while [true]; do
         wget http://localhost/update-readings/
+        sleep 10
     done
 
 See that url? Yeah, that can be hit from anything that can reach the box. If
