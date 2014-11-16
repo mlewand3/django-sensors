@@ -1,0 +1,18 @@
+.status {
+    padding: 20px 0;
+    background-color: #FFF;
+    -webkit-transition: box-shadow 1;
+    transition: box-shadow 1s;
+}
+
+.ok {
+    box-shadow: 0px 0px 10px 0 #333, inset 0px 0px 80px 1px #0F0 !important;
+}
+
+.not-ok {
+    box-shadow: 0px 0px 10px 0 #333, inset 0px 0px 80px 1px #900 !important;
+}
+
+.not-pulse {
+    box-shadow: 0px 0px 10px 0 #333, inset 0px 0px 80px 1px #F00 !important;
+}

@@ -1,16 +1,35 @@
 {% extends "base.html" %}
 
-{% block includes %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gauges.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/status.css">
+{% endblock %}
+
+{% block js %}
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/gauges.js"></script>
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gauges.css">
 {% endblock %}
 
 {% block main %}
+  <div class="notify row">
+    <div class="col-md-2 text-center border-radius-10 status server ok">
+      <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+      <span class="message">Server OK</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="controls"></div>
+  </div>
+
+  <div class="row">
+    <div id="gauges">
+    </div>
+  </div>
+
   {% for sensor in sensors %}
     <div class="sensor" type="{{ sensor.sensor_type }}" title="{{ sensor.title }}">
       <div class="reading" value="{{ sensor.latest_reading }}"></div>
     </div>
   {% endfor %}
-  <div id="chart_div"></div>
 {% endblock %}

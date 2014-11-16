@@ -7,7 +7,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 print os.path.join(script_dir, '../server/')
 sys.path.append(os.path.join(script_dir, '../server/'))
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pocketServ.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sensors.settings")
 
 from sensors.models import *
 

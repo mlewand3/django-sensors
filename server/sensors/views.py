@@ -18,8 +18,7 @@ def home(request):
         context_instance=RequestContext(request))
 
 
-def ajax_gauge_update(request):
-    '''
+def update_sensors(request):
     w1_list = filter(settings.W1['FOLDER_REGEX'].search, settings.W1['LIST'])
     for sensor in w1_list:
         sensor_serial = None
@@ -41,6 +40,11 @@ def ajax_gauge_update(request):
 
         reading = Reading(sensor=sensor_obj, value=sensor_reading)
         reading.save()
+
+
+def ajax_gauge_update(request):
+    '''
+
     '''
 
     sensors = Sensor.objects.all()

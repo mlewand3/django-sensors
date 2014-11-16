@@ -4,8 +4,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'pocketServ.views.home', name='home'),
-    url(r'^ajax-gauge-update$', 'pocketServ.views.ajax_gauge_update', name='ajax_gauge_update'),
+    url(r'^$', 'sensors.views.home', name='home'),
+    url(r'^update-sensors/?$', 'sensors.views.update_sensors', name='update_sensors'),
+    url(r'^ajax-gauge-update/?$', 'sensors.views.ajax_gauge_update', name='ajax_gauge_update'),
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),

@@ -1,13 +1,39 @@
+{% load staticfiles compress %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    {% compress css %}
+    <link href="{%  static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css">
-    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <style type="text/css">
+      body {
+        background-image: url({% static 'img/background.jpg' %});
+      }
+    </style>
+    {% block css %}
+    {% endblock %}
+    {% endcompress %}
+
+    <!-- JavaScript -->
+    {% compress js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript">
+      window.AJAX_SLEEP = {{ AJAX_SLEEP }};
+    </script>
+    {% block js %}
+    {% endblock %}
+    {% endcompress %}
+
     {% block includes %}
     {% endblock %}
   </head>
   <body>
-    <div class="wrapper">
+    <div class="container">
       {% block main %}
       {% endblock %}
     </div>
