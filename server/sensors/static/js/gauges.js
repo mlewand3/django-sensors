@@ -29,8 +29,7 @@ $(function(){
     });
 
     request.success(function(response){
-      $('.status.server').removeClass('not-ok');
-      $('.status.server').removeClass('not-pulse');
+      serverStatus(true);
 
       var gauge_data = [['Label', 'Value']];
 
@@ -46,14 +45,8 @@ $(function(){
     });
 
     request.fail(function(){
-      if ($('.status.server').hasClass('not-ok')) {
-          $('.status.server').removeClass('not-ok');
-          $('.status.server').addClass('not-pulse');
-      } else {
-          $('.status.server').addClass('not-ok');
-          $('.status.server').removeClass('not-pulse');
-      }
-    })
+      serverStatus(false);
+    });
   }
 
   pollServer();
