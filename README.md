@@ -17,6 +17,3 @@ And probably
 - w1-therm
 
 After that, if you've got 1-wire devices connected, there should be more than one symlink in /sys/bus/w1/devices
-
-
-

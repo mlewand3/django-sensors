@@ -21,6 +21,12 @@ local_settings.py
 *.sqlite3
 
 #
+# IDE files
+#
+
+.idea
+
+#
 # System files
 #
 
