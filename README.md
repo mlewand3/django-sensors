@@ -82,7 +82,7 @@ The things you'll want to watch out for are:
 ## Usage
 
 So, you've made it! You now have the app running. To see a dashboard of your 
-  gauges, visit the device's IP address.
+  gauges, visit the site you set up.
 
 You'll want to be sure to reboot the device to verify that you've got everything
   set up to run on boot.
