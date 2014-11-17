@@ -74,7 +74,9 @@ The things you'll want to watch out for are:
   the UID of the owner of the files on disk (otherwise you'll get sqlite errors
   or worse)
 - if you followed this guide without modifying settings, your static files will
-  be located at the root of your clone, in a folder called *static*
+  be located at the root of your clone, in a folder called *static*. This is
+  probably where you'll want to set your root to, as well as aliasing /static/
+  here.
 - go easy on the nubmer of threads apache can spawn
 
 ## Usage
