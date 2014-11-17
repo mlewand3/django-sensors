@@ -82,7 +82,12 @@ The things you'll want to watch out for are:
 ## Usage
 
 So, you've made it! You now have the app running. To see a dashboard of your 
-  gauges, visit the site you set up.
+  gauges, visit the site you set up. If you have a 1-wire device connected and
+  you've requested /update-readings/ the page should contain gauges.
+
+![Alt gauges](http://bittwiddle.io/static/img/django-sensors.png "Homepage Screenshot")
+
+Log intothe admin site to name the sensor(s)
 
 You'll want to be sure to reboot the device to verify that you've got everything
   set up to run on boot.
