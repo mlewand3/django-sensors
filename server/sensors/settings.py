@@ -6,7 +6,7 @@ import re
 DJANGO_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 PROJECT_ROOT = os.path.join(DJANGO_ROOT, '..')
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
